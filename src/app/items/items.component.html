@@ -1,0 +1,32 @@
+<div class="items-wrap d-flex">
+  <div class="items-content items-content-wrap  d-flex">
+    <h4 class="item-main-title"> Items</h4>
+    <div class="add-item-wrap d-flex">
+      <form #newItem="ngForm" (ngSubmit)="onSubmit(newItem)" class="item-form d-flex pr-15">
+        <div class="input-grup">
+          <input matInput placeholder="Type name here..." required minlength="1" name="item" [(ngModel)]="item">
+        </div>
+        <button mat-button class="btn btn-new" [disabled]="!newItem.valid">Add new</button>
+      </form>
+    </div>
+    <div class="items-item-wrap">
+      <ul class="items-list d-flex">
+        <li class="item d-flex" *ngFor="let item of itemsService.items, let i = index"
+            [ngClass]="{'active': selectedItemId === item.id}" (click)="selectedItemId = item.id"
+            (click)="itemsService.showComments(item)">
+          <!--<p class="item-title">{{item.id}}</p>-->
+          <div class="item-info d-flex">
+            <p class="item-title">{{item.name}}</p>
+
+            <span class="item-coments-num">{{item.comments.length}}</span>
+          </div>
+          <button class="btn btn-accent" (click)="itemsService.deleteItem(item.id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="items-content comments-content-wrap d-flex p-20">
+    <app-comments class="w-100"></app-comments>
+  </div>
+</div>
+

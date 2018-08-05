@@ -1,0 +1,25 @@
+<h4 class="item-main-title"> Comments <span *ngIf="itemsService.itemComents"> #{{ itemsService.itemComents.id}}</span>
+</h4>
+<div class="comments-content d-flex">
+  <div *ngIf="itemsService.itemComents" class="comment-list-wrap w-100 d-flex">
+    <ul class="comment-list d-flex">
+      <li class="coment-item d-flex" *ngFor="let comment of itemsService.itemComents.comments">
+        <div class="coment-user" [style.background-color]="comment.color"></div>
+        <div class="coment-content">
+          {{comment.name}}
+        </div>
+      </li>
+    </ul>
+    <div class="add-comments-wrap d-flex">
+      <div class="coment-user"></div>
+      <form #addCommnets="ngForm"
+            class="add-coment d-flex"
+            (keydown)="keyDownFunction($event, addCommnets)">
+        <div class="input-grup w-100">
+          <textarea class="textarea" name="comment" [(ngModel)]="comment"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
