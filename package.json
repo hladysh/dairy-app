@@ -1,5 +1,5 @@
 {
-  "name": "daity",
+  "name": "dairy",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,9 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-//    "ngh": "ng build --prod --base-href 'https://hladysh.github.io/dairy-app/'",
-//    "ngh2": "ng build --base-href 'https://hladysh.github.io/dairy-app/'",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
