@@ -1,7 +1,11 @@
 export class Item {
   constructor(
     public name: string,
-    public coments: number,
+    public totalComment: number,
+    public coments: {
+      text: string,
+      color: string,
+    },
     public id?: number
   ) {
   }

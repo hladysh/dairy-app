@@ -1,23 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ItemsService} from './items.service';
-import {Item} from '../shared/model/item.model';
 import {NgForm} from '@angular/forms';
-export class User{
-  name: string;
-  email: string;
-  phone: string;
-}
+
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.sass']
 })
 export class ItemsComponent implements OnInit {
-  user: User = new User();
-  addUser(){
-    console.log(this.user);
-  }
   item;
+
   constructor(public itemsService: ItemsService) {
   }
 

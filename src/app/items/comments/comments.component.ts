@@ -8,20 +8,17 @@ import {ItemsService} from '../items.service';
   styleUrls: ['./comments.component.sass']
 })
 export class CommentsComponent {
-  comment;
+  // comment;
+
   constructor(public itemsService: ItemsService) {
   }
 
   keyDownFunction(event, addCommnets) {
     if (event.ctrlKey && event.keyCode === 13) {
-
       const color = this.getColor();
-      console.log(color);
       this.itemsService.addCommnet(addCommnets.value.comment, color);
       addCommnets.reset();
     }
-
-
   }
 
   getColor() {

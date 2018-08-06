@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+import {Item} from "../shared/model/item.model";
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,17 +9,16 @@ export class ItemsService {
 
   itemComents;
   itemId;
+  items = [];
 
   constructor() {
   }
-
-  items = [];
-
-  showComments(item) {
+  
+  showComments(item: Item) {
     this.itemComents = item;
   }
 
-  addItem(item) {
+  addItem(item: Item) {
     if (!this.items) {
       this.items = [];
     }
@@ -29,14 +30,14 @@ export class ItemsService {
       comments: [],
     });
     localStorage.setItem('id', JSON.stringify(this.itemId));
-    localStorage.setItem('items', JSON.stringify(this.items));
+    this.setItem(this.items);
   }
 
   deleteItem(id) {
     const newItems = this.items.filter(function (obj) {
       return obj.id !== id;
     });
-    localStorage.setItem('items', JSON.stringify(newItems));
+    this.setItem(newItems);
     this.items = JSON.parse(localStorage.getItem('items'));
     this.itemComents = null;
   }
@@ -49,10 +50,15 @@ export class ItemsService {
 
     newItems.map(data => {
       data.comments.push({
-        name: comment,
+        comment: comment,
         color: color,
       });
     });
-    localStorage.setItem('items', JSON.stringify(this.items));
+    this.setItem(this.items);
   }
+
+  setItem(items) {
+    localStorage.setItem('items', JSON.stringify(items));
+  }
+
 }

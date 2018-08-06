@@ -14,7 +14,6 @@
         <li class="item d-flex" *ngFor="let item of itemsService.items, let i = index"
             [ngClass]="{'active': selectedItemId === item.id}" (click)="selectedItemId = item.id"
             (click)="itemsService.showComments(item)">
-          <!--<p class="item-title">{{item.id}}</p>-->
           <div class="item-info d-flex">
             <p class="item-title">{{item.name}}</p>
 

@@ -6,7 +6,7 @@
       <li class="coment-item d-flex" *ngFor="let comment of itemsService.itemComents.comments">
         <div class="coment-user" [style.background-color]="comment.color"></div>
         <div class="coment-content">
-          {{comment.name}}
+          {{comment.comment}}
         </div>
       </li>
     </ul>
